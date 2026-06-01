@@ -1,0 +1,17 @@
+services:
+
+  mail-service:
+    build: .
+
+    container_name: mail-service
+
+    ports:
+      - "${APP_PORT}:80"
+
+    volumes:
+      - .:/var/www/html
+
+    restart: always
+
+    env_file:
+      - .env

@@ -33,3 +33,21 @@ CREATE TABLE mail_log (
 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE mail_tokens (
+    id SERIAL PRIMARY KEY,
+
+    token VARCHAR(255) UNIQUE NOT NULL,
+
+    email VARCHAR(255) NOT NULL,
+
+    tipo VARCHAR(50), -- CONFIRMACION_TURNO
+
+    referencia_id INTEGER, -- id del turno o entidad del hospital
+
+    usado BOOLEAN DEFAULT FALSE,
+
+    fecha_expiracion TIMESTAMP NOT NULL,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

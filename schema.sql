@@ -18,3 +18,18 @@ CREATE TABLE smtp_accounts
 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE mail_log (
+    id SERIAL PRIMARY KEY,
+
+    smtp_account_id INTEGER,
+    destinatario VARCHAR(255),
+    asunto VARCHAR(255),
+    cuerpo TEXT,
+
+    estado VARCHAR(50), -- SENT / ERROR
+
+    error TEXT,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
